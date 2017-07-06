@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-impprinter"
+        version="1.0.4"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <engines>
+      <engine name="cordova" version=">=3.9.1" /><!-- Needs cordova/urlutil -->
+    </engines>
+
+  <name>iziggi</name>
+  <description>IMP Printer Plugin</description>
+  <js-module name=“impprinter” src="www/impprinter.js">
+    <clobbers target="impprinter" />
+  </js-module>
+  <platform name="ios">
+    
+    <config-file parent="UIBackgroundModes" target="*-Info.plist">
+        <array>
+            <string>bluetooth-central</string>
+        </array>
+    </config-file>
+    
+    <hook type="after_platform_add" src="hook/hook.js" />
+
+    <header-file src="src/ios/IMPPrinterPlugin.h” />
+    <header-file src="src/ios/PrinterSDK/PrinterSDK.h” />
+    
+    <source-file src="src/ios/IMPPrinterPlugin.m” />
+
+    <source-file src="src/ios/PrinterSDK/libPrinterSDK.a” framework="true" />
+    
+    <config-file parent="/*" target="config.xml">
+      <feature name=“IMPPrinterPlugin”>
+        <param name="onload" value="true" />
+        <param name="ios-package" value=“IMPPrinterPlugin” />
+    </feature>
+    </config-file>
+
+  </platform>
+</plugin>
