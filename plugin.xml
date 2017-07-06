@@ -10,7 +10,7 @@
 
   <name>iziggi</name>
   <description>IMP Printer Plugin</description>
-  <js-module name=“impprinter” src="www/impprinter.js">
+  <js-module name="impprinter" src="www/impprinter.js">
     <clobbers target="impprinter" />
   </js-module>
   <platform name="ios">
@@ -23,17 +23,17 @@
     
     <hook type="after_platform_add" src="hook/hook.js" />
 
-    <header-file src="src/ios/IMPPrinterPlugin.h” />
-    <header-file src="src/ios/PrinterSDK/PrinterSDK.h” />
+    <header-file src="src/ios/IMPPrinterPlugin.h" />
+    <header-file src="src/ios/PrinterSDK/PrinterSDK.h" />
     
-    <source-file src="src/ios/IMPPrinterPlugin.m” />
+    <source-file src="src/ios/IMPPrinterPlugin.m" />
 
-    <source-file src="src/ios/PrinterSDK/libPrinterSDK.a” framework="true" />
+    <source-file src="src/ios/PrinterSDK/libPrinterSDK.a" framework="true" />
     
     <config-file parent="/*" target="config.xml">
-      <feature name=“IMPPrinterPlugin”>
+      <feature name="IMPPrinterPlugin">
         <param name="onload" value="true" />
-        <param name="ios-package" value=“IMPPrinterPlugin” />
+        <param name="ios-package" value="IMPPrinterPlugin" />
     </feature>
     </config-file>
 
