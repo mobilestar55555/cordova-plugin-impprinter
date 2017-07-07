@@ -22,7 +22,7 @@ USAGE:
 ## From Native to Javascript mobilestar55555
 
 ### Javascript
-window.impprinter.initPrinter(function(data){
+       window.impprinter.initPrinter(function(data){
             alert("init printer success");
         },
         function errorHandler(err){
