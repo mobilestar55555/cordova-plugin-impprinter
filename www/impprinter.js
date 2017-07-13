@@ -84,8 +84,10 @@ module.exports = {
     scanStartPrinters: function (eventname, f) {
         if (!(eventname in this._channels)) {
             var me = this;
+            me._channels[eventname] = channel.create(eventname);
+            me._channels[eventname].subscribe(f);
+                    
             exec( function() {
-                me._channels[eventname] = channel.create(eventname);
                 me._channels[eventname].subscribe(f);
                 }, function(err)  {
             }, "IMPPrinterPlugin", "scanStartPrinters", [eventname]);
@@ -99,8 +101,10 @@ module.exports = {
     wifiConnect: function (address, eventname, f) {
        if (!(eventname in this._channels)) {
            var me = this;
+           me._channels[eventname] = channel.create(eventname);
+           me._channels[eventname].subscribe(f);
+                    
            exec( function() {
-                me._channels[eventname] = channel.create(eventname);
                 me._channels[eventname].subscribe(f);
                 }, function(err)  {
             }, "IMPPrinterPlugin", "wifiConnect", [address, eventname]);
@@ -114,8 +118,10 @@ module.exports = {
     bluetoothConnect: function (index, eventname, f) {
         if (!(eventname in this._channels)) {
             var me = this;
+            me._channels[eventname] = channel.create(eventname);
+            me._channels[eventname].subscribe(f);
+                    
             exec( function() {
-                me._channels[eventname] = channel.create(eventname);
                 me._channels[eventname].subscribe(f);
                 }, function(err)  {
             }, "IMPPrinterPlugin", "bluetoothConnect", [index, eventname]);
@@ -129,8 +135,10 @@ module.exports = {
        disconnectPrinter: function (eventname, f) {
            if (!(eventname in this._channels)) {
                var me = this;
+               me._channels[eventname] = channel.create(eventname);
+               me._channels[eventname].subscribe(f);
+                    
                exec( function() {
-                    me._channels[eventname] = channel.create(eventname);
                     me._channels[eventname].subscribe(f);
                     }, function(err)  {
                     }, "IMPPrinterPlugin", "disconnectPrinter", [eventname]);
